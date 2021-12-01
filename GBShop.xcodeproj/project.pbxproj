@@ -7,6 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A0E520127577024002C76F5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0E520027577024002C76F5 /* User.swift */; };
+		0A0E520327577051002C76F5 /* LoginResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0E520227577051002C76F5 /* LoginResult.swift */; };
+		0A0E52052757706A002C76F5 /* AbstractErrorParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0E52042757706A002C76F5 /* AbstractErrorParser.swift */; };
+		0A0E520727577079002C76F5 /* ErrorParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0E520627577079002C76F5 /* ErrorParser.swift */; };
+		0A0E520927577094002C76F5 /* ResponseCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0E520827577094002C76F5 /* ResponseCodable.swift */; };
+		0A0E520B275770A4002C76F5 /* AbstractRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0E520A275770A4002C76F5 /* AbstractRequestFactory.swift */; };
+		0A0E520D275770B0002C76F5 /* RequestRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0E520C275770B0002C76F5 /* RequestRouter.swift */; };
+		0A0E520F275770C5002C76F5 /* AuthRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0E520E275770C5002C76F5 /* AuthRequestFactory.swift */; };
+		0A0E5211275770CC002C76F5 /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0E5210275770CC002C76F5 /* Auth.swift */; };
+		0A0E5213275770DB002C76F5 /* RequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0E5212275770DB002C76F5 /* RequestFactory.swift */; };
+		0A0E521527577457002C76F5 /* UserRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0E521427577457002C76F5 /* UserRequestFactory.swift */; };
+		0A0E521727579B75002C76F5 /* logoutResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0E521627579B75002C76F5 /* logoutResult.swift */; };
+		0A0E521927579CF5002C76F5 /* RegisterUserResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0E521827579CF5002C76F5 /* RegisterUserResult.swift */; };
+		0A0E521B27579E22002C76F5 /* ChangeDataResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0E521A27579E22002C76F5 /* ChangeDataResult.swift */; };
+		0A0E521D27579F16002C76F5 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0E521C27579F16002C76F5 /* UserData.swift */; };
+		0A0E521F2757A06E002C76F5 /* UserDataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0E521E2757A06E002C76F5 /* UserDataRequest.swift */; };
 		0A8D5AEA27509D29004C04BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8D5AE927509D29004C04BB /* AppDelegate.swift */; };
 		0A8D5AEC27509D29004C04BB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8D5AEB27509D29004C04BB /* SceneDelegate.swift */; };
 		0A8D5AF127509D29004C04BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A8D5AEF27509D29004C04BB /* Main.storyboard */; };
@@ -40,6 +56,22 @@
 
 /* Begin PBXFileReference section */
 		017E0982A22C99E9D22A30C1 /* Pods-GBShop-GBShopUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GBShop-GBShopUITests.debug.xcconfig"; path = "Target Support Files/Pods-GBShop-GBShopUITests/Pods-GBShop-GBShopUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		0A0E520027577024002C76F5 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		0A0E520227577051002C76F5 /* LoginResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResult.swift; sourceTree = "<group>"; };
+		0A0E52042757706A002C76F5 /* AbstractErrorParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractErrorParser.swift; sourceTree = "<group>"; };
+		0A0E520627577079002C76F5 /* ErrorParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorParser.swift; sourceTree = "<group>"; };
+		0A0E520827577094002C76F5 /* ResponseCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseCodable.swift; sourceTree = "<group>"; };
+		0A0E520A275770A4002C76F5 /* AbstractRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractRequestFactory.swift; sourceTree = "<group>"; };
+		0A0E520C275770B0002C76F5 /* RequestRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestRouter.swift; sourceTree = "<group>"; };
+		0A0E520E275770C5002C76F5 /* AuthRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRequestFactory.swift; sourceTree = "<group>"; };
+		0A0E5210275770CC002C76F5 /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
+		0A0E5212275770DB002C76F5 /* RequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFactory.swift; sourceTree = "<group>"; };
+		0A0E521427577457002C76F5 /* UserRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRequestFactory.swift; sourceTree = "<group>"; };
+		0A0E521627579B75002C76F5 /* logoutResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = logoutResult.swift; sourceTree = "<group>"; };
+		0A0E521827579CF5002C76F5 /* RegisterUserResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserResult.swift; sourceTree = "<group>"; };
+		0A0E521A27579E22002C76F5 /* ChangeDataResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeDataResult.swift; sourceTree = "<group>"; };
+		0A0E521C27579F16002C76F5 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		0A0E521E2757A06E002C76F5 /* UserDataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataRequest.swift; sourceTree = "<group>"; };
 		0A8D5AE627509D29004C04BB /* GBShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GBShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A8D5AE927509D29004C04BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A8D5AEB27509D29004C04BB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -91,6 +123,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A0E51FE27576FFD002C76F5 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				0A0E52042757706A002C76F5 /* AbstractErrorParser.swift */,
+				0A0E520627577079002C76F5 /* ErrorParser.swift */,
+				0A0E520827577094002C76F5 /* ResponseCodable.swift */,
+				0A0E520A275770A4002C76F5 /* AbstractRequestFactory.swift */,
+				0A0E520C275770B0002C76F5 /* RequestRouter.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		0A0E51FF27577012002C76F5 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				0A0E520E275770C5002C76F5 /* AuthRequestFactory.swift */,
+				0A0E521427577457002C76F5 /* UserRequestFactory.swift */,
+				0A0E5210275770CC002C76F5 /* Auth.swift */,
+				0A0E521C27579F16002C76F5 /* UserData.swift */,
+				0A0E5212275770DB002C76F5 /* RequestFactory.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		0A8D5ADD27509D29004C04BB = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +213,7 @@
 		0A8D5B1A2754695C004C04BB /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				0A0E51FE27576FFD002C76F5 /* Network */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -173,6 +230,7 @@
 		0A8D5B1D27546997004C04BB /* Buisness logic */ = {
 			isa = PBXGroup;
 			children = (
+				0A0E51FF27577012002C76F5 /* Network */,
 			);
 			path = "Buisness logic";
 			sourceTree = "<group>";
@@ -180,6 +238,12 @@
 		0A8D5B1E275469E2004C04BB /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				0A0E520027577024002C76F5 /* User.swift */,
+				0A0E521E2757A06E002C76F5 /* UserDataRequest.swift */,
+				0A0E520227577051002C76F5 /* LoginResult.swift */,
+				0A0E521627579B75002C76F5 /* logoutResult.swift */,
+				0A0E521827579CF5002C76F5 /* RegisterUserResult.swift */,
+				0A0E521A27579E22002C76F5 /* ChangeDataResult.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -218,7 +282,6 @@
 				BCA934FC1432F2FB5D0C5EEE /* Pods-GBShopTests.debug.xcconfig */,
 				1C3299C442A8DDB2F87D4565 /* Pods-GBShopTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -471,9 +534,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A0E520F275770C5002C76F5 /* AuthRequestFactory.swift in Sources */,
+				0A0E521F2757A06E002C76F5 /* UserDataRequest.swift in Sources */,
+				0A0E520127577024002C76F5 /* User.swift in Sources */,
+				0A0E520B275770A4002C76F5 /* AbstractRequestFactory.swift in Sources */,
+				0A0E5213275770DB002C76F5 /* RequestFactory.swift in Sources */,
+				0A0E521727579B75002C76F5 /* logoutResult.swift in Sources */,
+				0A0E520927577094002C76F5 /* ResponseCodable.swift in Sources */,
+				0A0E521B27579E22002C76F5 /* ChangeDataResult.swift in Sources */,
+				0A0E521927579CF5002C76F5 /* RegisterUserResult.swift in Sources */,
 				0A905849275752E7004D6BFD /* ViewController.swift in Sources */,
 				0A8D5AEA27509D29004C04BB /* AppDelegate.swift in Sources */,
+				0A0E521527577457002C76F5 /* UserRequestFactory.swift in Sources */,
+				0A0E52052757706A002C76F5 /* AbstractErrorParser.swift in Sources */,
+				0A0E521D27579F16002C76F5 /* UserData.swift in Sources */,
+				0A0E520D275770B0002C76F5 /* RequestRouter.swift in Sources */,
+				0A0E520727577079002C76F5 /* ErrorParser.swift in Sources */,
+				0A0E520327577051002C76F5 /* LoginResult.swift in Sources */,
 				0A8D5AEC27509D29004C04BB /* SceneDelegate.swift in Sources */,
+				0A0E5211275770CC002C76F5 /* Auth.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
