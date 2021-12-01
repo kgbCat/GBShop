@@ -15,6 +15,7 @@
 		0A8D5B0127509D2B004C04BB /* GBShopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8D5B0027509D2B004C04BB /* GBShopTests.swift */; };
 		0A8D5B0B27509D2B004C04BB /* GBShopUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8D5B0A27509D2B004C04BB /* GBShopUITests.swift */; };
 		0A8D5B0D27509D2B004C04BB /* GBShopUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8D5B0C27509D2B004C04BB /* GBShopUITestsLaunchTests.swift */; };
+		0A905849275752E7004D6BFD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A905848275752E7004D6BFD /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		0A8D5B0627509D2B004C04BB /* GBShopUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GBShopUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A8D5B0A27509D2B004C04BB /* GBShopUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBShopUITests.swift; sourceTree = "<group>"; };
 		0A8D5B0C27509D2B004C04BB /* GBShopUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBShopUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		0A905848275752E7004D6BFD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,10 +99,10 @@
 		0A8D5AE827509D29004C04BB /* GBShop */ = {
 			isa = PBXGroup;
 			children = (
+				0A905847275751DE004D6BFD /* Environments */,
 				0A8D5B19275467AE004C04BB /* App */,
 				0A8D5B1A2754695C004C04BB /* Core */,
 				0A8D5B1B27546965004C04BB /* Resources */,
-				0A8D5B1C2754697A004C04BB /* Environments */,
 			);
 			path = GBShop;
 			sourceTree = "<group>";
@@ -151,14 +153,6 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		0A8D5B1C2754697A004C04BB /* Environments */ = {
-			isa = PBXGroup;
-			children = (
-				0A8D5AF727509D2B004C04BB /* Info.plist */,
-			);
-			name = Environments;
-			sourceTree = "<group>";
-		};
 		0A8D5B1D27546997004C04BB /* Buisness logic */ = {
 			isa = PBXGroup;
 			children = (
@@ -184,8 +178,17 @@
 			isa = PBXGroup;
 			children = (
 				0A8D5AEF27509D29004C04BB /* Main.storyboard */,
+				0A905848275752E7004D6BFD /* ViewController.swift */,
 			);
 			path = Flows;
+			sourceTree = "<group>";
+		};
+		0A905847275751DE004D6BFD /* Environments */ = {
+			isa = PBXGroup;
+			children = (
+				0A8D5AF727509D2B004C04BB /* Info.plist */,
+			);
+			path = Environments;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -319,6 +322,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A905849275752E7004D6BFD /* ViewController.swift in Sources */,
 				0A8D5AEA27509D29004C04BB /* AppDelegate.swift in Sources */,
 				0A8D5AEC27509D29004C04BB /* SceneDelegate.swift in Sources */,
 			);
@@ -427,7 +431,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -482,7 +486,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -501,7 +505,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ZHUTRQ83V7;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = GBShop/Info.plist;
+				INFOPLIST_FILE = GBShop/Environments/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -529,7 +533,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ZHUTRQ83V7;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = GBShop/Info.plist;
+				INFOPLIST_FILE = GBShop/Environments/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
