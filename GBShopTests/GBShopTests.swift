@@ -6,28 +6,61 @@
 //
 
 import XCTest
+import Alamofire
 @testable import GBShop
 
 class GBShopTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    var requestFactory: RequestFactory!
+
+    override func setUp()  {
+
+        requestFactory = RequestFactory()
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    override func tearDown() {
+        requestFactory = nil
+
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
+    func testLogoutResult() {
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+        let auth = requestFactory.makeAuthRequestFatory()
+        let logoutExpectation = expectation(description: "loged out")
+
+        auth.logOut(id: 123) { response in
+            switch response.result {
+            case .success(let result):
+                XCTAssertEqual(result.result, 1)
+                logoutExpectation.fulfill()
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
+            }
         }
+        wait(for: [logoutExpectation], timeout: 10.0)
+
+
+    }
+    func testAuthResult()  {
+
+        let auth = requestFactory.makeAuthRequestFatory()
+        let authExpectation = expectation(description: "loged in")
+        auth.login(userName: "Somebody", password: "mypassword") { (response) in
+            switch response.result {
+            case .success(let model):
+                XCTAssertEqual(model.result, 1)
+                XCTAssertEqual(model.user.id, 123)
+                XCTAssertEqual(model.user.login, "geekbrains")
+                XCTAssertEqual(model.user.name, "John")
+                XCTAssertEqual(model.user.lastName, "Doe")
+
+                authExpectation.fulfill()
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
+            }
+        }
+
+        wait(for: [authExpectation], timeout: 10.0)
     }
 
 }
