@@ -63,4 +63,58 @@ class LoginLogoutTests: XCTestCase {
         wait(for: [authExpectation], timeout: 10.0)
     }
 
+    func testRegisterUser() {
+        let registration = requestFactory.makeUserDataRequestFatory()
+        let expectation = expectation(description: "Registered")
+        registration.register(
+            user: UserDataRequest(id: 123,
+                                  userName: "Somebody",
+                                  password: "mypassword",
+                                  email: "some@some.ru",
+                                  gender: "m",
+                                  creditCard: "9872389-2424-234224-234",
+                                  bio: "This is good! I think I will switch to another language"))
+        { response in
+            switch response.result {
+            case .success(let model):
+                XCTAssertEqual(model.result, 1)
+                XCTAssertEqual(model.userMessage, "Регистрация прошла успешно!")
+
+                expectation.fulfill()
+
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
+            }
+        }
+        wait(for: [expectation], timeout: 10.0)
+    }
+
+    func testChangeUserData() {
+        let change = requestFactory.makeUserDataRequestFatory()
+        let expectation = expectation(description: "Data is changed")
+        change.changeData(
+            user: UserDataRequest(id: 123,
+                                  userName: "Somebody",
+                                  password: "mypassword",
+                                  email: "some@some.ru",
+                                  gender: "m",
+                                  creditCard: "9872389-2424-234224-234",
+                                  bio: "This is good! I think I will switch to another language"))
+        { response in
+            switch response.result {
+            case .success(let model):
+                XCTAssertEqual(model.result, 1)
+
+                expectation.fulfill()
+
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
+            }
+        }
+        wait(for: [expectation], timeout: 10.0)
+
+    }
+
+
+
 }

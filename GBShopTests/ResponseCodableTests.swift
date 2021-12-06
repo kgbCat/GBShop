@@ -12,7 +12,6 @@ import Alamofire
 
 class ResponseCodableTests: XCTestCase {
 
-    let expectation = XCTestExpectation(description: "https://failUrl")
     var errorParser: ErrorParserStub!
 
     struct PostStub: Codable {
@@ -48,19 +47,24 @@ class ResponseCodableTests: XCTestCase {
 
     }
 
-    func testShouldDownloadAndParse() {
-        let errorParser = ErrorParserStub()
+    // MARK: - Positive tests
+
+    func testShouldDownloadAndParse() throws {
+        let expectation = XCTestExpectation(description: "Download https://jsonplaceholder.typicode.com/posts/1")
 
         AF.request("https://jsonplaceholder.typicode.com/posts/1").responseCodable(errorParser: errorParser) {(response: DataResponse<PostStub, AFError>) in
             switch response.result {
-            case .success(_): break
-            case .failure: XCTFail()
+            case .success(_):
+                expectation.fulfill()
+            case .failure:
+                XCTFail()
             }
-            self.expectation.fulfill()
-
         }
         wait(for: [expectation], timeout: 10.0)
     }
+
+    // MARK: - Negative tests
+
 
 
 }

@@ -22,14 +22,14 @@ class LoadProductsTests: XCTestCase {
         requestFactory = nil
 
     }
-    func testGetAllProducts() {
+    // MARK: - Positive tests
+    func testgetCatalogData() throws {
         let request = requestFactory.makeProductRequestFactory()
         let expectation = expectation(description: "Catalog data")
-        request.getCatalogData(category: CategoryRequest(pageNumber: 1, idCategory: 1)) { response in
+        request.getCatalogData(pageNumber: 1, idCategory: 1) { response in
             switch response.result {
             case .success(let result):
-                let products = result.products
-                XCTAssertEqual(products.count, 2)
+                XCTAssertEqual(result.count, 2)
                 expectation.fulfill()
             case .failure(let error):
                 XCTFail(error.localizedDescription)
@@ -37,22 +37,8 @@ class LoadProductsTests: XCTestCase {
         }
         wait(for: [expectation], timeout: 15.0)
     }
-//    [
-//    {
-//    "id_product": 123,
-//    "product_name": "Ноутбук",
-//    "price": 45600
-//    },
-//    {
-//    "id_product": 456,
-//    "product_name": "Мышка",
-//    "price": 1000
-//    }
-//    ]
-
 
     func testGetProductByID() {
-
         let request = requestFactory.makeProductRequestFactory()
         let expectation = expectation(description: "Product is loaded")
         request.getProductByID(id: 123) { response in
@@ -69,8 +55,27 @@ class LoadProductsTests: XCTestCase {
         }
 
         wait(for: [expectation], timeout: 10.0)
+    }
 
+    // MARK: - Negative tests
 
+    func testFailGetProductByID() {
+        let request = requestFactory.makeProductRequestFactory()
+        let expectation = expectation(description: "Product is loaded")
+        request.getProductByID(id: 45) { response in
+            switch response.result {
+            case .success(let result):
+                XCTAssertEqual(result.result, 1)
+                XCTAssertEqual(result.name, "Ноутбук")
+                XCTAssertEqual(result.price, 45600)
+                XCTAssertEqual(result.description, "Мощный игровой ноутбук")
+                expectation.fulfill()
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
+            }
+        }
+
+        wait(for: [expectation], timeout: 10.0)
     }
 
 }
