@@ -9,7 +9,7 @@ import XCTest
 import Alamofire
 @testable import GBShop
 
-class GBShopTests: XCTestCase {
+class LoginLogoutTests: XCTestCase {
 
     var requestFactory: RequestFactory!
 
