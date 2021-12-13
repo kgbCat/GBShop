@@ -26,14 +26,14 @@ class Auth: AbstractRequestFactory {
 
 extension Auth: AuthRequestFactory {
 
-    func logOut(id: Int, completionHandler: @escaping (AFDataResponse<LogoutResult>) -> Void) {
-        let requestModel = Logout(baseUrl: baseUrl, id: id )
+    func logOut(request: LogoutRequest, completionHandler: @escaping (AFDataResponse<DefaultUserDataResult>) -> Void) {
+        let requestModel = Logout(baseUrl: baseUrl, request: request)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
 
 
-    func login(userName: String, password: String, completionHandler: @escaping (AFDataResponse<LoginResult>) -> Void) {
-        let requestModel = Login(baseUrl: baseUrl, login: userName, password: password)
+    func login(request: AuthRequest, completionHandler: @escaping (AFDataResponse<DefaultUserDataResult>) -> Void) {
+        let requestModel = Login(baseUrl: baseUrl, request: request)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
 }
@@ -41,28 +41,28 @@ extension Auth: AuthRequestFactory {
 extension Auth {
     struct Login: RequestRouter {
         let baseUrl: URL
-        let method: HTTPMethod = .get
-        let path: String = "login.json"
+        let method: HTTPMethod = .post
+        let path: String = "login"
 
-        let login: String
-        let password: String
+        let request: AuthRequest
         var parameters: Parameters? {
             return [
-                "username": login,
-                "password": password
+                "userName": request.userName,
+                "password": request.password
             ]
         }
     }
 
     struct Logout: RequestRouter {
         var baseUrl: URL
-        var method: HTTPMethod = .get
-        var path: String = "logout.json"
-        var id: Int
+        var method: HTTPMethod = .post
+        var path: String = "logout"
+
+        let request: LogoutRequest
 
         var parameters: Parameters? {
             return [
-                "id_user": id
+                "id": request.id 
             ]
         }
 

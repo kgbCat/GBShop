@@ -20,23 +20,24 @@ class ViewController: UIViewController {
         view.backgroundColor = .systemBlue
 
 
-        auth(userName: "Somebody", password: "mypassword")
-        logout(id: 123)
-        register(user: UserDataRequest(id: 123, userName: "Somebody",
-                                       password: "mypassword", email: "some@some.ru",
-                                       gender: "m", creditCard: "9872389-2424-234224-234",
-                                       bio: "This is good! I think I will switch to another language"))
+        auth(request: AuthRequest(userName: "delova", password: "12345"))
+        logout(request: LogoutRequest(id: 123))
+
+        register(user: UserDataRequest(id: 1, userName: "delova",
+                                       password: "12345", email: "delova@mail.ru",
+                                       gender: "f", creditCard: "1234564785869",
+                                       bio: "jahfgyaef"))
         changeUsersData(user: UserDataRequest(id: 123, userName: "Somebody",
                                               password: "mypassword", email: "some@some.ru",
                                               gender: "m", creditCard: "9872389-2424-234224-234",
                                               bio: "This is good! I think I will switch to another language"))
-        
+
         getCategory(pageNumber: 1, idCategory: 1)
+
         getProductByID(id: 123)
 
 
 
-        // Do any additional setup after loading the view.
     }
 
     func getCategory(pageNumber: Int, idCategory: Int) {
@@ -87,9 +88,9 @@ class ViewController: UIViewController {
             }
         }
     }
-    func auth(userName: String, password: String) {
+    func auth(request: AuthRequest) {
         let auth = requestFactory.makeAuthRequestFatory()
-        auth.login(userName: userName , password: password) { response in
+        auth.login(request: request) { response in
             switch response.result {
             case .success(let login):
                 print(login)
@@ -98,9 +99,9 @@ class ViewController: UIViewController {
             }
         }
     }
-    func logout(id: Int) {
+    func logout(request: LogoutRequest)  {
         let auth = requestFactory.makeAuthRequestFatory()
-        auth.logOut(id: id) { response in
+        auth.logOut(request: request) { response in
             switch response.result {
             case .success(let logout):
                 print(logout)
