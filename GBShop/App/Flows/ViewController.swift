@@ -19,25 +19,62 @@ class ViewController: UIViewController {
 
         view.backgroundColor = .systemBlue
 
+        deleteReview(reviewId: 3)
+        getReviews(productId: 123)
+        addReview(review: Review(customerName: "Anna", productName: "Macbook", starCount: 5, review: "nice", reviewId: 3))
+//        auth(request: AuthRequest(userName: "delova", password: "12345"))
+//        logout(request: LogoutRequest(id: 123))
+//
+//        register(user: UserDataRequest(id: 1, userName: "delova",
+//                                       password: "12345", email: "delova@mail.ru",
+//                                       gender: "f", creditCard: "1234564785869",
+//                                       bio: "jahfgyaef"))
+//        changeUsersData(user: UserDataRequest(id: 123, userName: "Somebody",
+//                                              password: "mypassword", email: "some@some.ru",
+//                                              gender: "m", creditCard: "9872389-2424-234224-234",
+//                                              bio: "This is good! I think I will switch to another language"))
+//
+//        getCategory(pageNumber: 1, idCategory: 1)
+//
+//        getProductByID(id: 123)
 
-        auth(request: AuthRequest(userName: "delova", password: "12345"))
-        logout(request: LogoutRequest(id: 123))
-
-        register(user: UserDataRequest(id: 1, userName: "delova",
-                                       password: "12345", email: "delova@mail.ru",
-                                       gender: "f", creditCard: "1234564785869",
-                                       bio: "jahfgyaef"))
-        changeUsersData(user: UserDataRequest(id: 123, userName: "Somebody",
-                                              password: "mypassword", email: "some@some.ru",
-                                              gender: "m", creditCard: "9872389-2424-234224-234",
-                                              bio: "This is good! I think I will switch to another language"))
-
-        getCategory(pageNumber: 1, idCategory: 1)
-
-        getProductByID(id: 123)
 
 
+    }
+    func getReviews(productId: Int) {
+        let request = requestFactory.makeReviewRequestFactory()
+        request.getAllReviews(productId: productId) { response in
+            switch response.result{
+                case .success(let result):
+                    print(result)
+                case .failure(let error):
+                    print(error.localizedDescription)
+            }
+        }
+    }
 
+    func deleteReview(reviewId: Int) {
+        let request = requestFactory.makeReviewRequestFactory()
+        request.deleteReview(reviewId: reviewId) { response in
+            switch response.result{
+                case .success(let result):
+                    print(result)
+                case .failure(let error):
+                    print(error.localizedDescription)
+            }
+        }
+    }
+
+    func addReview(review: Review) {
+        let request = requestFactory.makeReviewRequestFactory()
+        request.addNewReview(review: review) { response in
+            switch response.result{
+                case .success(let result):
+                    print(result)
+                case .failure(let error):
+                    print(error.localizedDescription)
+            }
+        }
     }
 
     func getCategory(pageNumber: Int, idCategory: Int) {
