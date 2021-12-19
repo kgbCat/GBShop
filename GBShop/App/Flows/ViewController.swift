@@ -19,9 +19,13 @@ class ViewController: UIViewController {
 
         view.backgroundColor = .systemBlue
 
-        deleteReview(reviewId: 3)
-        getReviews(productId: 123)
-        addReview(review: Review(customerName: "Anna", productName: "Macbook", starCount: 5, review: "nice", reviewId: 3))
+//        payBasket(productId: 123, creditCard: "12345678")
+        addItem(productId: 123)
+        deleteItem(productId: 123)
+
+//        deleteReview(reviewId: 3)
+//        getReviews(productId: 123)
+//        addReview(review: Review(customerName: "Anna", productName: "Macbook", starCount: 5, review: "nice", reviewId: 3))
 //        auth(request: AuthRequest(userName: "delova", password: "12345"))
 //        logout(request: LogoutRequest(id: 123))
 //
@@ -35,12 +39,46 @@ class ViewController: UIViewController {
 //                                              bio: "This is good! I think I will switch to another language"))
 //
 //        getCategory(pageNumber: 1, idCategory: 1)
-//
 //        getProductByID(id: 123)
 
 
 
     }
+    func payBasket(productId: Int, creditCard: String) {
+        let request = requestFactory.makeBasketRequestFactory()
+        request.payBasket(creditCard: creditCard, productId: productId) { response in
+            switch response.result{
+                case .success(let result):
+                    print(result)
+                case .failure(let error):
+                    print(error.localizedDescription)
+            }
+        }
+    }
+    func addItem(productId: Int) {
+        let request = requestFactory.makeBasketRequestFactory()
+        request.addItemToBasket(productId: productId) { response in
+            switch response.result{
+                case .success(let result):
+                    print(result)
+                case .failure(let error):
+                    print(error.localizedDescription)
+            }
+        }
+    }
+
+    func deleteItem(productId: Int) {
+        let request = requestFactory.makeBasketRequestFactory()
+        request.deleteItemFromBasket(productId: productId) { response in
+            switch response.result{
+                case .success(let result):
+                    print(result)
+                case .failure(let error):
+                    print(error.localizedDescription)
+            }
+        }
+    }
+
     func getReviews(productId: Int) {
         let request = requestFactory.makeReviewRequestFactory()
         request.getAllReviews(productId: productId) { response in
