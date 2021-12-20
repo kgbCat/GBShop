@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 
 
 class ViewController: UIViewController {
@@ -17,6 +18,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = .systemBlue
+
+
         auth(userName: "Somebody", password: "mypassword")
         logout(id: 123)
         register(user: UserDataRequest(id: 123, userName: "Somebody",
@@ -27,10 +30,39 @@ class ViewController: UIViewController {
                                               password: "mypassword", email: "some@some.ru",
                                               gender: "m", creditCard: "9872389-2424-234224-234",
                                               bio: "This is good! I think I will switch to another language"))
+        
+        getCategory(pageNumber: 1, idCategory: 1)
+        getProductByID(id: 123)
+
 
 
         // Do any additional setup after loading the view.
     }
+
+    func getCategory(pageNumber: Int, idCategory: Int) {
+        let request = requestFactory.makeProductRequestFactory()
+        request.getCatalogData(pageNumber: pageNumber, idCategory: idCategory ) { response in
+            switch response.result{
+            case .success(let result):
+                print(result)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+
+    func getProductByID(id: Int) {
+        let request = requestFactory.makeProductRequestFactory()
+        request.getProductByID(id: id) { response in
+            switch response.result {
+            case .success(let product):
+                print(product)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+
 
     func changeUsersData(user:UserDataRequest) {
         let newUser = requestFactory.makeUserDataRequestFatory()
