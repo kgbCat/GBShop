@@ -34,12 +34,12 @@ extension BasketData: BasketRequestFactory {
     }
 
     func addItemToBasket(productId: Int, completionHandler: @escaping (AFDataResponse<DefaultUserDataResult>) -> Void) {
-        let requestModel = DeleteItem(baseUrl: baseUrl, productId: productId)
+        let requestModel = AddItem(baseUrl: baseUrl, productId: productId)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
 
     func deleteItemFromBasket(productId: Int, completionHandler: @escaping (AFDataResponse<DefaultUserDataResult>) -> Void) {
-        let requestModel = AddItem(baseUrl: baseUrl, productId: productId)
+        let requestModel = DeleteItem(baseUrl: baseUrl, productId: productId)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
 }
@@ -48,7 +48,7 @@ extension BasketData {
     struct AddItem: RequestRouter {
         var baseUrl: URL
         var method: HTTPMethod =  .post
-        var path: String = "addItemtoBasket"
+        var path: String = "addItemToBasket"
 
         let productId: Int
         var parameters: Parameters? {

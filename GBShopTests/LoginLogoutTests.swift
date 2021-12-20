@@ -20,65 +20,59 @@ class LoginLogoutTests: XCTestCase {
 
     override func tearDown() {
         requestFactory = nil
-
     }
 
     func testLogoutResult() {
-
+        let mockRequest = LogoutRequest(id: 1)
         let auth = requestFactory.makeAuthRequestFatory()
         let logoutExpectation = expectation(description: "loged out")
-
-        auth.logOut(id: 123) { response in
+        auth.logOut(request: mockRequest) { response in
             switch response.result {
-            case .success(let result):
-                XCTAssertEqual(result.result, 1)
+            case .success(let model):
+                XCTAssertEqual(model.result, 0)
+                XCTAssertEqual(model.userMessage, "Не верный ID пользователя")
+                XCTAssertEqual(model.errorMessage, nil)
                 logoutExpectation.fulfill()
+
             case .failure(let error):
                 XCTFail(error.localizedDescription)
             }
         }
         wait(for: [logoutExpectation], timeout: 10.0)
-
-
     }
     func testAuthResult()  {
-
+        let mockRequest = AuthRequest(userName: "delova", password: "123456")
         let auth = requestFactory.makeAuthRequestFatory()
         let authExpectation = expectation(description: "loged in")
-        auth.login(userName: "Somebody", password: "mypassword") { (response) in
+        auth.login(request: mockRequest) {response in
             switch response.result {
             case .success(let model):
                 XCTAssertEqual(model.result, 1)
-                XCTAssertEqual(model.user.id, 123)
-                XCTAssertEqual(model.user.login, "geekbrains")
-                XCTAssertEqual(model.user.name, "John")
-                XCTAssertEqual(model.user.lastName, "Doe")
+//                XCTAssertEqual(model.result, 0)
+                XCTAssertEqual(model.userMessage, "Вход выполнен!")
+//                XCTAssertEqual(model.userMessage, "Ошибка ввода данных пользователя")
+//                XCTAssertEqual(model.userMessage, "Неверный пароль!")
 
+                XCTAssertEqual(model.errorMessage, nil)
                 authExpectation.fulfill()
+
             case .failure(let error):
                 XCTFail(error.localizedDescription)
             }
         }
-
         wait(for: [authExpectation], timeout: 10.0)
     }
 
     func testRegisterUser() {
+        let mockRequest = UserDataRequest(id: 1, userName: "delova", password: "123456", email: "delova@", gender: "f", creditCard: "1234567890", bio: "sdfg")
         let registration = requestFactory.makeUserDataRequestFatory()
         let expectation = expectation(description: "Registered")
-        registration.register(
-            user: UserDataRequest(id: 123,
-                                  userName: "Somebody",
-                                  password: "mypassword",
-                                  email: "some@some.ru",
-                                  gender: "m",
-                                  creditCard: "9872389-2424-234224-234",
-                                  bio: "This is good! I think I will switch to another language"))
-        { response in
+        registration.register(user: mockRequest) { response in
             switch response.result {
             case .success(let model):
                 XCTAssertEqual(model.result, 1)
                 XCTAssertEqual(model.userMessage, "Регистрация прошла успешно!")
+                XCTAssertEqual(model.errorMessage, nil)
 
                 expectation.fulfill()
 
@@ -90,20 +84,16 @@ class LoginLogoutTests: XCTestCase {
     }
 
     func testChangeUserData() {
-        let change = requestFactory.makeUserDataRequestFatory()
-        let expectation = expectation(description: "Data is changed")
-        change.changeData(
-            user: UserDataRequest(id: 123,
-                                  userName: "Somebody",
-                                  password: "mypassword",
-                                  email: "some@some.ru",
-                                  gender: "m",
-                                  creditCard: "9872389-2424-234224-234",
-                                  bio: "This is good! I think I will switch to another language"))
-        { response in
+
+        let mockRequest = UserDataRequest(id: 1, userName: "delova", password: "123456", email: "delova@", gender: "f", creditCard: "1234567890", bio: "sdfg")
+        let changeData = requestFactory.makeUserDataRequestFatory()
+        let expectation = expectation(description: "Registered")
+        changeData.changeData(user: mockRequest) { response in
             switch response.result {
             case .success(let model):
                 XCTAssertEqual(model.result, 1)
+                XCTAssertEqual(model.userMessage, "Данные изменены успешно!")
+                XCTAssertEqual(model.errorMessage, nil)
 
                 expectation.fulfill()
 

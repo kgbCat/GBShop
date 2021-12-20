@@ -17,26 +17,26 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .systemBlue
-
 //        payBasket(productId: 123, creditCard: "12345678")
-        addItem(productId: 123)
-        deleteItem(productId: 123)
+//        addItem(productId: 123)
+//        deleteItem(productId: 123)
 
 //        deleteReview(reviewId: 3)
 //        getReviews(productId: 123)
 //        addReview(review: Review(customerName: "Anna", productName: "Macbook", starCount: 5, review: "nice", reviewId: 3))
-//        auth(request: AuthRequest(userName: "delova", password: "12345"))
-//        logout(request: LogoutRequest(id: 123))
+
+//        auth(request: AuthRequest(userName: "delova", password: "123456"))
+//        logout(request: LogoutRequest(id: 1))
 //
 //        register(user: UserDataRequest(id: 1, userName: "delova",
-//                                       password: "12345", email: "delova@mail.ru",
+//                                       password: "123456", email: "delova@mail.ru",
 //                                       gender: "f", creditCard: "1234564785869",
 //                                       bio: "jahfgyaef"))
-//        changeUsersData(user: UserDataRequest(id: 123, userName: "Somebody",
-//                                              password: "mypassword", email: "some@some.ru",
-//                                              gender: "m", creditCard: "9872389-2424-234224-234",
-//                                              bio: "This is good! I think I will switch to another language"))
+
+//        changeUsersData(user: UserDataRequest(id: 1, userName: "delova",
+//                                              password: "123456", email: "delova@mail.ru",
+//                                              gender: "f", creditCard: "12345647859",
+//                                              bio: "jahfgyaef"))
 //
 //        getCategory(pageNumber: 1, idCategory: 1)
 //        getProductByID(id: 123)
