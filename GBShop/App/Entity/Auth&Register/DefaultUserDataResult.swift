@@ -7,8 +7,10 @@
 
 import Foundation
 
-struct RegisterUserResult: Codable {
+struct DefaultUserDataResult: Codable {
 
     var result: Int
     var userMessage: String
+    var errorMessage: String?
+
 }

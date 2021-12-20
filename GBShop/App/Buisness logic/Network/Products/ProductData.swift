@@ -13,7 +13,7 @@ class ProductData: AbstractRequestFactory {
     var errorParser: AbstractErrorParser
     var sessionManager: Session
     var queue: DispatchQueue
-    let baseUrl = URL(string: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/")!
+    let baseUrl = URL(string: Constants.baseUrl)!
 
     init(
         errorParser: AbstractErrorParser,
@@ -31,7 +31,7 @@ extension ProductData: ProductRequestFactory {
         self.request(request: requestModel, completionHandler: completionHandler)
     }
 
-    func getProductByID(id: Int, completionHandler: @escaping (AFDataResponse<ProductInfoByID>) -> Void) {
+    func getProductByID(id: Int, completionHandler: @escaping (AFDataResponse<Product>) -> Void) {
         let requestModel = ProductByID(baseUrl: baseUrl, id: id)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
@@ -41,30 +41,30 @@ extension ProductData {
 
     struct CatalogData: RequestRouter {
         let baseUrl: URL
-        let method: HTTPMethod = .get
-        let path: String = "catalogData.json"
+        let method: HTTPMethod = .post
+        let path: String = "getProductsData"
 
         let pageNumber: Int
         let idCategory: Int
         
         var parameters: Parameters? {
             return [
-                "page_number": pageNumber,
-                "id_category": idCategory
+                "pageNumber": pageNumber,
+                "categoryId": idCategory
             ]
         }
     }
 
     struct ProductByID: RequestRouter {
         var baseUrl: URL
-        var method: HTTPMethod = .get
-        var path: String = "getGoodById.json"
+        var method: HTTPMethod = .post
+        var path: String = "getProductByID"
 
         let id: Int
 
         var parameters: Parameters? {
             return [
-                "id_product": id
+                "productId": id
             ]
         }
 

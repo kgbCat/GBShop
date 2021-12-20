@@ -10,8 +10,8 @@ import Alamofire
 
 protocol UserRequestFactory {
     
-    func register(user: UserDataRequest, completionHandler: @escaping (AFDataResponse<RegisterUserResult>) -> Void)
+    func register(user: UserDataRequest, completionHandler: @escaping (AFDataResponse<DefaultUserDataResult>) -> Void)
 
-    func changeData(user: UserDataRequest, completionHandler: @escaping(AFDataResponse<ChangeDataResult>) -> Void)
+    func changeData(user: UserDataRequest, completionHandler: @escaping(AFDataResponse<DefaultUserDataResult>) -> Void)
 
 }

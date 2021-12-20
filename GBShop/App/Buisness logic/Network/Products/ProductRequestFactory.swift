@@ -13,6 +13,6 @@ protocol ProductRequestFactory {
 
     func getCatalogData(pageNumber: Int, idCategory: Int, completionHandler: @escaping (AFDataResponse<[Product]>) -> Void)
 
-    func getProductByID(id: Int, completionHandler: @escaping(AFDataResponse<ProductInfoByID>)-> Void)
+    func getProductByID(id: Int, completionHandler: @escaping(AFDataResponse<Product>)-> Void)
 
 }
