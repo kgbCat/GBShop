@@ -9,13 +9,18 @@ import UIKit
 import Alamofire
 
 
-class ViewController: UIViewController {
+class LoginViewController: UIViewController {
 
     let requestFactory = RequestFactory()
 
+    // MARK: IBoutlets
+
+    @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
 
 //        payBasket(productId: 123, creditCard: "12345678")
 //        addItem(productId: 123)
@@ -28,10 +33,10 @@ class ViewController: UIViewController {
 //        auth(request: AuthRequest(userName: "delova", password: "123456"))
 //        logout(request: LogoutRequest(id: 1))
 //
-//        register(user: UserDataRequest(id: 1, userName: "delova",
-//                                       password: "123456", email: "delova@mail.ru",
-//                                       gender: "f", creditCard: "1234564785869",
-//                                       bio: "jahfgyaef"))
+        register(user: UserDataRequest(id: 1, userName: "delova",
+                                       password: "123456", email: "delova@mail.ru",
+                                       gender: "f", creditCard: "1234564785869",
+                                       bio: "jahfgyaef"))
 
 //        changeUsersData(user: UserDataRequest(id: 1, userName: "delova",
 //                                              password: "123456", email: "delova@mail.ru",
@@ -41,9 +46,21 @@ class ViewController: UIViewController {
 //        getCategory(pageNumber: 1, idCategory: 1)
 //        getProductByID(id: 123)
 
+    }
+    // MARK: IBActions
 
+    @IBAction func toSignUp(_ sender: UIButton) {
+        performSegue(withIdentifier: Constants.goToRegisterVC, sender: self)
 
     }
+    @IBAction func toSignIn(_ sender: UIButton) {
+        performSegue(withIdentifier: Constants.goToCatalogVC, sender: self)
+    }
+
+    @IBAction func unwind( _ seg: UIStoryboardSegue) {
+    }
+
+
     func payBasket(productId: Int, creditCard: String) {
         let request = requestFactory.makeBasketRequestFactory()
         request.payBasket(creditCard: creditCard, productId: productId) { response in

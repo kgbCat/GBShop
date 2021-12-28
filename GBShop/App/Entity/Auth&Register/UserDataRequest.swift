@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct UserDataRequest {
+struct UserDataRequest{
 
     var id: Int
     var userName: String
