@@ -189,7 +189,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gGk-DQ-ojf" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="900"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NH3-x7-pTD">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create  Profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NH3-x7-pTD">
                                                 <rect key="frame" x="70" y="152" width="250" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="fvF-mH-IsL"/>
@@ -317,7 +317,7 @@
                         <outlet property="genderTextField" destination="RsR-Hb-FiH" id="PCh-W9-Cb1"/>
                         <outlet property="passwordTextField" destination="r51-mA-fsr" id="ngA-cw-FnS"/>
                         <outlet property="usernameTextField" destination="dUU-Ea-zih" id="mNZ-fY-ptp"/>
-                        <segue destination="U5U-mv-3PP" kind="unwind" identifier="regiisterThanUnwindToLogin" unwindAction="unwind:" id="6xL-fS-io0"/>
+                        <segue destination="U5U-mv-3PP" kind="unwind" identifier="registerThenUnwindToLogin" unwindAction="unwind:" id="6xL-fS-io0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oSl-47-BMg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -335,6 +335,9 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="EJs-fa-Cvd">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="hYu-PL-9DA"/>
                     </connections>
@@ -444,8 +447,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M6i-Ue-ne2" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="900"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome Username" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lTM-VR-lXE">
-                                                <rect key="frame" x="36.666666666666657" y="152" width="316.66666666666674" height="30"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit Profile" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lTM-VR-lXE">
+                                                <rect key="frame" x="70" y="152" width="250" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="6Kh-H6-Fwl"/>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="WEd-eB-wNo"/>

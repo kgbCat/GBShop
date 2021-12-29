@@ -32,11 +32,11 @@ class LoginViewController: UIViewController {
 
 //        auth(request: AuthRequest(userName: "delova", password: "123456"))
 //        logout(request: LogoutRequest(id: 1))
-//
-        register(user: UserDataRequest(id: 1, userName: "delova",
-                                       password: "123456", email: "delova@mail.ru",
-                                       gender: "f", creditCard: "1234564785869",
-                                       bio: "jahfgyaef"))
+////
+//        register(user: UserDataRequest(id: 1, userName: "delova",
+//                                       password: "123456", email: "delova@mail.ru",
+//                                       gender: "f", creditCard: "1234564785869",
+//                                       bio: "jahfgyaef"))
 
 //        changeUsersData(user: UserDataRequest(id: 1, userName: "delova",
 //                                              password: "123456", email: "delova@mail.ru",
