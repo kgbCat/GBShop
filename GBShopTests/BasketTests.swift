@@ -23,7 +23,7 @@ class BasketTests: XCTestCase {
 
 
     func testAddItem() {
-        let id = 123
+        let id = 1
         let basket = requestFactory.makeBasketRequestFactory()
         let expecation = expectation(description: "Added")
         basket.addItemToBasket(productId: id) { response in
@@ -42,7 +42,7 @@ class BasketTests: XCTestCase {
     }
 
     func testDeleteItem() {
-        let id = 123
+        let id = 1
         let basket = requestFactory.makeBasketRequestFactory()
         let expecation = expectation(description: "Deleted")
         basket.deleteItemFromBasket(productId: id) { response in
@@ -61,9 +61,9 @@ class BasketTests: XCTestCase {
     }
 
     func testPay() {
-        let id = 123
+        let id = 1
         let card = "1234567"
-        let sum = 1234
+        let sum = 82694
         let basket = requestFactory.makeBasketRequestFactory()
         let expecation = expectation(description: "Payed")
         basket.payBasket(creditCard: card, productId: id) { response in

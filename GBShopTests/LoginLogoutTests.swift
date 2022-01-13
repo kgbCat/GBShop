@@ -23,7 +23,7 @@ class LoginLogoutTests: XCTestCase {
     }
 
     func testLogoutResult() {
-        let mockRequest = LogoutRequest(id: 1)
+        let mockRequest = LogoutRequest(userName: "delva")
         let auth = requestFactory.makeAuthRequestFatory()
         let logoutExpectation = expectation(description: "loged out")
         auth.logOut(request: mockRequest) { response in
@@ -64,7 +64,7 @@ class LoginLogoutTests: XCTestCase {
     }
 
     func testRegisterUser() {
-        let mockRequest = UserDataRequest(id: 1, userName: "delova", password: "123456", email: "delova@", gender: "f", creditCard: "1234567890", bio: "sdfg")
+        let mockRequest = UserDataRequest(userName: "delova", password: "123456", email: "delova@", creditCard: "1234567890")
         let registration = requestFactory.makeUserDataRequestFatory()
         let expectation = expectation(description: "Registered")
         registration.register(user: mockRequest) { response in
@@ -85,7 +85,7 @@ class LoginLogoutTests: XCTestCase {
 
     func testChangeUserData() {
 
-        let mockRequest = UserDataRequest(id: 1, userName: "delova", password: "123456", email: "delova@", gender: "f", creditCard: "1234567890", bio: "sdfg")
+        let mockRequest = UserDataRequest(userName: "delova", password: "123456", email: "delova@", creditCard: "1234567890")
         let changeData = requestFactory.makeUserDataRequestFatory()
         let expectation = expectation(description: "Registered")
         changeData.changeData(user: mockRequest) { response in

@@ -29,7 +29,7 @@ class LoadProductsTests: XCTestCase {
         request.getCatalogData(pageNumber: 1, idCategory: 1) { response in
             switch response.result {
             case .success(let result):
-                XCTAssertEqual(result.count, 2)
+                XCTAssertEqual(result.count, 5)
                 expectation.fulfill()
             case .failure(let error):
                 XCTFail(error.localizedDescription)
@@ -41,13 +41,13 @@ class LoadProductsTests: XCTestCase {
     func testGetProductByID() {
         let request = requestFactory.makeProductRequestFactory()
         let expectation = expectation(description: "Product is loaded")
-        request.getProductByID(id: 123) { response in
+        request.getProductByID(id: 1) { response in
             switch response.result {
             case .success(let result):
                 XCTAssertEqual(result.result, 1)
-                XCTAssertEqual(result.name, "Ноутбук")
-                XCTAssertEqual(result.price, 1234)
-                XCTAssertEqual(result.description, nil)
+                XCTAssertEqual(result.name, "MSI / Ноутбук MSI GF63")
+                XCTAssertEqual(result.price, 82694)
+                XCTAssertEqual(result.description, "Thin 11UC-219XRU 15.6 FHD/i5-11400H/8Gb/512Gb SSD/RTX3050 4Gb, DOS, черный")
                 expectation.fulfill()
             case .failure(let error):
                 XCTFail(error.localizedDescription)
