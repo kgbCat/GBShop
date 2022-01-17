@@ -33,6 +33,9 @@ class CatalogViewController: UIViewController {
     @IBAction func logout(_ sender: UIBarButtonItem) {
         logout(request: LogoutRequest(userName: Constants.sharedUser.user.userName))
     }
+
+    @IBAction func unwind( _ seg: UIStoryboardSegue) { }
+
 }
     //MARK: TableView DataSource
 extension CatalogViewController: UITableViewDataSource {
@@ -57,17 +60,19 @@ extension CatalogViewController: UITableViewDataSource {
 extension CatalogViewController: UITableViewDelegate, CatalogCellDelegate {
 
     func didTapAddToTheCart(product: Product) {
+        self.product = product
         performSegue(withIdentifier: Constants.goToBasketController, sender: product)
     }
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Constants.goToBasketController {
             let basketController: BasketViewController = segue.destination as! BasketViewController
-            basketController.product = sender as? Product
+            if let product = self.product {
+                basketController.products.append(product)
+            }
         }
         if segue.identifier == Constants.goToProductVC {
             let productController: ProductViewController = segue.destination as! ProductViewController
-            if let  product = self.product {
+            if let product = self.product {
                 productController.product =  product
             }
         }

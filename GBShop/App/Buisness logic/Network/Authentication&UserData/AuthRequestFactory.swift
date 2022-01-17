@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 
 protocol AuthRequestFactory {
-    func login(request: AuthRequest, completionHandler: @escaping (AFDataResponse<DefaultUserDataResult>) -> Void)
+    func login(request: AuthRequest, completionHandler: @escaping (AFDataResponse<CustomerResponse>) -> Void)
 
     func logOut(request: LogoutRequest, completionHandler: @escaping (AFDataResponse<DefaultUserDataResult>) -> Void)
 }

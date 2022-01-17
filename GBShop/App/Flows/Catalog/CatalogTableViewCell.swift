@@ -22,17 +22,6 @@ class CatalogTableViewCell: UITableViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
     public func configer(product: Product) {
 
         self.product = product
@@ -42,7 +31,6 @@ class CatalogTableViewCell: UITableViewCell {
             descriptionLabel.text  = description
         }
         priceLabel.text  = "\(product.price) rub"
-
     }
 
     //MARK: IBActons
@@ -52,5 +40,4 @@ class CatalogTableViewCell: UITableViewCell {
             catalogDelegate.didTapAddToTheCart(product: product)
         }
     }
-
 }

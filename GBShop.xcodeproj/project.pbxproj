@@ -35,6 +35,8 @@
 		0A8D5B0B27509D2B004C04BB /* GBShopUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8D5B0A27509D2B004C04BB /* GBShopUITests.swift */; };
 		0A8D5B0D27509D2B004C04BB /* GBShopUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8D5B0C27509D2B004C04BB /* GBShopUITestsLaunchTests.swift */; };
 		0A905849275752E7004D6BFD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A905848275752E7004D6BFD /* LoginViewController.swift */; };
+		0A9233B12791A0C6005DF1B5 /* BasketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9233AF2791A0C6005DF1B5 /* BasketTableViewCell.swift */; };
+		0A9233B22791A0C6005DF1B5 /* BasketTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A9233B02791A0C6005DF1B5 /* BasketTableViewCell.xib */; };
 		0AA8331E27757A36004FEA88 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA8331D27757A36004FEA88 /* RegisterViewController.swift */; };
 		0AA8332027758A88004FEA88 /* ChangeRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA8331F27758A88004FEA88 /* ChangeRegistrationViewController.swift */; };
 		0AB2EB02276AE9A200D61EC2 /* BasketRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB2EB01276AE9A200D61EC2 /* BasketRequestFactory.swift */; };
@@ -109,6 +111,8 @@
 		0A8D5B0A27509D2B004C04BB /* GBShopUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBShopUITests.swift; sourceTree = "<group>"; };
 		0A8D5B0C27509D2B004C04BB /* GBShopUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBShopUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		0A905848275752E7004D6BFD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		0A9233AF2791A0C6005DF1B5 /* BasketTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketTableViewCell.swift; sourceTree = "<group>"; };
+		0A9233B02791A0C6005DF1B5 /* BasketTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BasketTableViewCell.xib; sourceTree = "<group>"; };
 		0AA8331D27757A36004FEA88 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		0AA8331F27758A88004FEA88 /* ChangeRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeRegistrationViewController.swift; sourceTree = "<group>"; };
 		0AB2EB01276AE9A200D61EC2 /* BasketRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketRequestFactory.swift; sourceTree = "<group>"; };
@@ -432,6 +436,8 @@
 			isa = PBXGroup;
 			children = (
 				0AFDF78A277C46C40063641D /* BasketViewController.swift */,
+				0A9233AF2791A0C6005DF1B5 /* BasketTableViewCell.swift */,
+				0A9233B02791A0C6005DF1B5 /* BasketTableViewCell.xib */,
 			);
 			path = Basket;
 			sourceTree = "<group>";
@@ -571,6 +577,7 @@
 				0A8D5AF627509D2B004C04BB /* LaunchScreen.storyboard in Resources */,
 				0AB2EB0A27756D5E00D61EC2 /* Assets.xcassets in Resources */,
 				0A8D5AF127509D29004C04BB /* Main.storyboard in Resources */,
+				0A9233B22791A0C6005DF1B5 /* BasketTableViewCell.xib in Resources */,
 				0A5594692790F1AE00AF55CC /* ReviewTableViewCell.xib in Resources */,
 				0AFDF792277EBCC90063641D /* CatalogTableViewCell.xib in Resources */,
 			);
@@ -725,6 +732,7 @@
 				0AA8332027758A88004FEA88 /* ChangeRegistrationViewController.swift in Sources */,
 				0AEE34592766FA490067B343 /* AuthRequest.swift in Sources */,
 				0AEE345C27696C7A0067B343 /* ReviewRequestFactory.swift in Sources */,
+				0A9233B12791A0C6005DF1B5 /* BasketTableViewCell.swift in Sources */,
 				0AEE345F27696E4C0067B343 /* Review.swift in Sources */,
 				0A0E5211275770CC002C76F5 /* Auth.swift in Sources */,
 				0A1EE7D0275C6E1D00B7429C /* Product.swift in Sources */,

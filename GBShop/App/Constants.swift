@@ -30,16 +30,20 @@ class Constants {
     static let goToProductVC = "goToProductVC"
     static let unwind = "unwind"
     static let unwindForProductVC = "unwindForProductVC"
+    static let unwindBackToCatalog = "unwindBackToCatalog"
+    static let addMoreFromCatalog = "addMoreFromCatalog"
 
     //MARK: Cell identifires
 
     static let productCell = "productCell"
     static let reviewCell = "reviewCell"
+    static let cartCell = "cartCell"
 
     //MARK: nib names
 
     static let CatalogTableViewCell = "CatalogTableViewCell"
     static let ReviewTableViewCell = "ReviewTableViewCell"
+    static let BasketTableViewCell = "BasketTableViewCell"
 
 
 }
