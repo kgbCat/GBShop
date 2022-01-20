@@ -12,8 +12,7 @@ class UserData: AbstractRequestFactory {
     let errorParser: AbstractErrorParser
     let sessionManager: Session
     let queue: DispatchQueue
-    let baseUrl = URL(string: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/")!
-
+    let baseUrl = URL(string: Constants.baseUrl)!
     init(
         errorParser: AbstractErrorParser,
         sessionManager: Session,
@@ -26,13 +25,13 @@ class UserData: AbstractRequestFactory {
 
 extension UserData: UserRequestFactory {
     
-    func register(user: UserDataRequest, completionHandler: @escaping (AFDataResponse<RegisterUserResult>) -> Void) {
+    func register(user: UserDataRequest, completionHandler: @escaping (AFDataResponse<DefaultUserDataResult>) -> Void) {
         let requestModel = Register(baseUrl:baseUrl, user: user)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
 
-    func changeData(user: UserDataRequest, completionHandler: @escaping (AFDataResponse<ChangeDataResult>) -> Void) {
-        let requestModel = Register(baseUrl:baseUrl, user: user)
+    func changeData(user: UserDataRequest, completionHandler: @escaping (AFDataResponse<DefaultUserDataResult>) -> Void) {
+        let requestModel = ChangeUserData(baseUrl:baseUrl, user: user)
         self.request(request: requestModel, completionHandler: completionHandler)
 
     }
@@ -42,18 +41,19 @@ extension UserData: UserRequestFactory {
 extension UserData {
     struct Register: RequestRouter {
         let baseUrl: URL
-        let method: HTTPMethod = .get
-        let path: String = "registerUser.json"
+        let method: HTTPMethod = .post
+
+        let path: String = "register"
 
         let user: UserDataRequest
         var parameters: Parameters? {
             return [
-                "id_user" : user.id,
-                "username" : user.userName,
+                "id" : user.id,
+                "userName" : user.userName,
                 "password" : user.password,
                 "email" : user.email,
                 "gender": user.gender,
-                "credit_card" : user.creditCard,
+                "creditCard" : user.creditCard,
                 "bio" : user.bio
             ]
         }
@@ -61,19 +61,20 @@ extension UserData {
 
     struct ChangeUserData: RequestRouter {
         var baseUrl: URL
-        var method: HTTPMethod = .get
-        var path: String = "changeUserData.json"
+        var method: HTTPMethod = .post
+        var path: String = "changeRegistrationData"
         let user: UserDataRequest
 
         var parameters: Parameters? {
             return [
-                "id_user" : user.id,
-                "username" : user.userName,
+                "id" : user.id,
+                "userName" : user.userName,
                 "password" : user.password,
                 "email" : user.email,
                 "gender": user.gender,
-                "credit_card" : user.creditCard,
-                "bio" : user.bio            ]
+                "creditCard" : user.creditCard,
+                "bio" : user.bio
+            ]
         }
 
 

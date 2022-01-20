@@ -33,6 +33,16 @@ class RequestFactory {
         let errorParser = makeErrorParser()
         return UserData(errorParser: errorParser, sessionManager: commonSession, queue: sessionQueue)
     }
+
+    func makeProductRequestFactory() -> ProductRequestFactory {
+        let errorParser = makeErrorParser()
+        return ProductData(errorParser: errorParser, sessionManager: commonSession, queue: sessionQueue)
+    }
+
+    func makeReviewRequestFactory() -> ReviewRequestFactory {
+        let errorParser = makeErrorParser()
+        return ReviewData(errorParser: errorParser, sessionManager: commonSession, queue: sessionQueue)
+    }
 }
 
 
