@@ -201,7 +201,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KIH-6Y-aay">
-                                                <rect key="frame" x="67.666666666666686" y="603" width="255" height="40"/>
+                                                <rect key="frame" x="67.666666666666686" y="562" width="255" height="40"/>
                                                 <color key="backgroundColor" systemColor="systemTealColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="Plj-6l-p5T"/>
@@ -215,7 +215,7 @@
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="SkX-ti-A1O">
-                                                <rect key="frame" x="67.666666666666686" y="283" width="255" height="260"/>
+                                                <rect key="frame" x="67.666666666666686" y="242" width="255" height="260"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dUU-Ea-zih">
                                                         <rect key="frame" x="0.0" y="0.0" width="255" height="34"/>
@@ -236,7 +236,7 @@
                                                         <textInputTraits key="textInputTraits" textContentType="password"/>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H2W-qO-LNg">
-                                                        <rect key="frame" x="0.0" y="150.66666666666663" width="255" height="34"/>
+                                                        <rect key="frame" x="0.0" y="150.66666666666669" width="255" height="34"/>
                                                         <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="255" id="eW8-f3-Uqj"/>
@@ -264,7 +264,7 @@
                                             <constraint firstAttribute="height" constant="900" id="1K2-TT-vwo"/>
                                             <constraint firstItem="NH3-x7-pTD" firstAttribute="top" secondItem="gGk-DQ-ojf" secondAttribute="top" constant="152" id="6ZW-CV-rH1"/>
                                             <constraint firstItem="SkX-ti-A1O" firstAttribute="centerX" secondItem="gGk-DQ-ojf" secondAttribute="centerX" id="KIk-Qd-UiX"/>
-                                            <constraint firstItem="SkX-ti-A1O" firstAttribute="top" secondItem="NH3-x7-pTD" secondAttribute="bottom" constant="101" id="M7Q-QK-cZA"/>
+                                            <constraint firstItem="SkX-ti-A1O" firstAttribute="top" secondItem="NH3-x7-pTD" secondAttribute="bottom" constant="60" id="M7Q-QK-cZA"/>
                                             <constraint firstItem="KIH-6Y-aay" firstAttribute="top" secondItem="SkX-ti-A1O" secondAttribute="bottom" constant="60" id="YSl-DG-Dc8"/>
                                             <constraint firstItem="NH3-x7-pTD" firstAttribute="centerX" secondItem="gGk-DQ-ojf" secondAttribute="centerX" id="cFi-fO-GAJ"/>
                                             <constraint firstItem="KIH-6Y-aay" firstAttribute="centerX" secondItem="gGk-DQ-ojf" secondAttribute="centerX" id="cvE-Ys-tfb"/>
@@ -452,7 +452,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LWc-Ce-7w1">
-                                                <rect key="frame" x="67.666666666666686" y="647" width="255" height="40"/>
+                                                <rect key="frame" x="67.666666666666686" y="606" width="255" height="40"/>
                                                 <color key="backgroundColor" systemColor="systemTealColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="uCz-E3-EJO"/>
@@ -466,7 +466,7 @@
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Ggn-Fu-7ic">
-                                                <rect key="frame" x="67.666666666666686" y="283" width="255" height="304"/>
+                                                <rect key="frame" x="67.666666666666686" y="242" width="255" height="304"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Current Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xuO-bs-8XY">
                                                         <rect key="frame" x="0.0" y="0.0" width="255" height="34"/>
@@ -526,7 +526,7 @@
                                             <constraint firstItem="LWc-Ce-7w1" firstAttribute="top" secondItem="Ggn-Fu-7ic" secondAttribute="bottom" constant="60" id="MVR-jn-f2x"/>
                                             <constraint firstItem="lTM-VR-lXE" firstAttribute="top" secondItem="M6i-Ue-ne2" secondAttribute="top" constant="152" id="QM1-Vu-oRv"/>
                                             <constraint firstItem="lTM-VR-lXE" firstAttribute="centerX" secondItem="M6i-Ue-ne2" secondAttribute="centerX" id="Zxn-IT-1Op"/>
-                                            <constraint firstItem="Ggn-Fu-7ic" firstAttribute="top" secondItem="lTM-VR-lXE" secondAttribute="bottom" constant="101" id="fzX-sh-1OK"/>
+                                            <constraint firstItem="Ggn-Fu-7ic" firstAttribute="top" secondItem="lTM-VR-lXE" secondAttribute="bottom" constant="60" id="fzX-sh-1OK"/>
                                             <constraint firstItem="LWc-Ce-7w1" firstAttribute="centerX" secondItem="M6i-Ue-ne2" secondAttribute="centerX" id="shy-bJ-LRZ"/>
                                             <constraint firstAttribute="height" constant="900" id="zfl-oe-w4y"/>
                                         </constraints>
