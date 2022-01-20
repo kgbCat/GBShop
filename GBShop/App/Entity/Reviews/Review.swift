@@ -9,7 +9,7 @@ import Foundation
 
 struct Review: Codable {
     let customerName: String
-    let productId: Int
+    var productId: Int
     let starCount: Int
     let review: String
     let reviewId: Int

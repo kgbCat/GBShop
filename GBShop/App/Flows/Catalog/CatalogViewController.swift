@@ -10,28 +10,28 @@ import UIKit
 class CatalogViewController: UIViewController {
 
     var data = [Product]()
-    var reviews =  [Review]()
-
+    var id = Int()
     let requestFactory = RequestFactory()
+    var product: Product?
 
     @IBOutlet weak var catalogTableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        data.sort(by:{ $0.id < $1.id })
-        reviews.sort(by: {$0.reviewId < $1.reviewId})
-
         self.catalogTableView.delegate = self
         self.catalogTableView.dataSource = self
+        self.catalogTableView.register(UINib(nibName: Constants.CatalogTableViewCell, bundle: nil), forCellReuseIdentifier: Constants.productCell)
 
-        self.catalogTableView.register(UINib(nibName: Constants.CatalogTableViewCell, bundle: nil),
-                                       forCellReuseIdentifier: Constants.productCell)
-
+        getCategory(pageNumber: 1, idCategory: 1)
     }
+
     //MARK: Navigation
     @IBAction func toChangeUserProfile(_ sender: UIButton) {
         performSegue(withIdentifier: Constants.goToChangeRegistrationVC, sender: self)
+    }
+
+    @IBAction func logout(_ sender: UIBarButtonItem) {
+        logout(request: LogoutRequest(userName: Constants.sharedUser.user.userName))
     }
 }
     //MARK: TableView DataSource
@@ -45,8 +45,9 @@ extension CatalogViewController: UITableViewDataSource {
 
         if let cell = catalogTableView.dequeueReusableCell(withIdentifier: Constants.productCell,
                                                            for: indexPath) as? CatalogTableViewCell {
-            cell.configer(product: data[indexPath.row], reviews: reviews[indexPath.row])
+            cell.configer(product: data[indexPath.row])
             cell.catalogDelegate = self
+            
             return cell
         }
         return UITableViewCell()
@@ -55,64 +56,66 @@ extension CatalogViewController: UITableViewDataSource {
     //MARK: Delegates
 extension CatalogViewController: UITableViewDelegate, CatalogCellDelegate {
 
-    func didTapReview(reviews: [Review]) {
-        performSegue(withIdentifier: Constants.goToReviewController, sender: reviews)
-    }
-
     func didTapAddToTheCart(product: Product) {
         performSegue(withIdentifier: Constants.goToBasketController, sender: product)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == Constants.goToReviewController {
-            let reviewController: ReviewViewController = segue.destination as! ReviewViewController
-            reviewController.reviews = sender as? Review
-        }
         if segue.identifier == Constants.goToBasketController {
             let basketController: BasketViewController = segue.destination as! BasketViewController
             basketController.product = sender as? Product
         }
+        if segue.identifier == Constants.goToProductVC {
+            let productController: ProductViewController = segue.destination as! ProductViewController
+            if let  product = self.product {
+                productController.product =  product
+            }
+        }
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.product = data[indexPath.row]
+        performSegue(withIdentifier: Constants.goToProductVC, sender: indexPath.row)
     }
 }
 
 extension CatalogViewController {
 
-    func getCategory(pageNumber: Int, idCategory: Int) -> [Product] {
+    //MARK: API methods
+    func getCategory(pageNumber: Int, idCategory: Int) -> Void {
         let request = requestFactory.makeProductRequestFactory()
-        var result1 = [Product]()
         request.getCatalogData(pageNumber: pageNumber, idCategory: idCategory ) { response in
-            switch response.result{
-            case .success(let result):
-                print(result)
-                result1 = result
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-        return result1
-    }
-
-    func getProductByID(id: Int) {
-        let request = requestFactory.makeProductRequestFactory()
-        request.getProductByID(id: id) { response in
-            switch response.result {
-            case .success(let product):
-                print(product)
-            case .failure(let error):
-                print(error.localizedDescription)
+            DispatchQueue.main.async {
+                switch response.result{
+                case .success(let result):
+                    self.data = result
+                    self.data.sort(by:{ $0.id < $1.id })
+                    self.catalogTableView.reloadData()
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
             }
         }
     }
-
     func logout(request: LogoutRequest)  {
         let auth = requestFactory.makeAuthRequestFatory()
         auth.logOut(request: request) { response in
-            switch response.result {
-            case .success(let logout):
-                print(logout)
-            case .failure(let error):
-                print(error.localizedDescription)
+            DispatchQueue.main.async {
+                switch response.result {
+                case .success(let logout):
+                    self.showAlert(message: logout.userMessage)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        self.performSegue(withIdentifier: Constants.unwind, sender: self)
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
             }
         }
+    }
+    //MARK: Private methods
+    private func showAlert(message: String = "!") {
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 }
