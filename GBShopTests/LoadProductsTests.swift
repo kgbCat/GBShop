@@ -46,8 +46,8 @@ class LoadProductsTests: XCTestCase {
             case .success(let result):
                 XCTAssertEqual(result.result, 1)
                 XCTAssertEqual(result.name, "Ноутбук")
-                XCTAssertEqual(result.price, 45600)
-                XCTAssertEqual(result.description, "Мощный игровой ноутбук")
+                XCTAssertEqual(result.price, 1234)
+                XCTAssertEqual(result.description, nil)
                 expectation.fulfill()
             case .failure(let error):
                 XCTFail(error.localizedDescription)
@@ -65,10 +65,10 @@ class LoadProductsTests: XCTestCase {
         request.getProductByID(id: 45) { response in
             switch response.result {
             case .success(let result):
-                XCTAssertEqual(result.result, 1)
-                XCTAssertEqual(result.name, "Ноутбук")
-                XCTAssertEqual(result.price, 45600)
-                XCTAssertEqual(result.description, "Мощный игровой ноутбук")
+                XCTAssertEqual(result.result, 0)
+                XCTAssertEqual(result.name, "")
+                XCTAssertEqual(result.price, 0)
+                XCTAssertEqual(result.description, "Такого товара нет")
                 expectation.fulfill()
             case .failure(let error):
                 XCTFail(error.localizedDescription)
