@@ -65,7 +65,7 @@ extension ReviewData {
         var parameters: Parameters? {
             return [
                 "customerName": review.customerName,
-                "productName": review.productName,
+                "productId": review.productId,
                 "starCount": review.starCount,
                 "review": review.review,
                 "reviewId": review.reviewId,

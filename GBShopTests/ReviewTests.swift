@@ -23,23 +23,21 @@ class ReviewTests: XCTestCase {
     }
 
 
-    func testGetAllReviews() {
-        let id = 123
-        let review = requestFactory.makeReviewRequestFactory()
-        let expecation = expectation(description: "Added")
-        review.getAllReviews(productId: id){ response in
-            switch response.result {
-            case .success(let model):
-                XCTAssertEqual(model.count, 6)
-
-                expecation.fulfill()
-
-            case .failure(let error):
-                XCTFail(error.localizedDescription)
-            }
-        }
-        wait(for: [expecation], timeout: 10.0)
-    }
+//    func testGetAllReviews() throws {
+//        let review = requestFactory.makeReviewRequestFactory()
+//        let expecation = expectation(description: "Added")
+//        review.getAllReviews(productId: 1){
+//            response in
+//            switch response.result {
+//            case .success(let model):
+//                XCTAssertEqual(model.count, 6)
+//                expecation.fulfill()
+//            case .failure(let error):
+//                XCTFail(error.localizedDescription)
+//            }
+//        }
+//        wait(for: [expecation], timeout: 10.0)
+//    }
 
     func testDelete() {
         let id = 123
@@ -61,7 +59,7 @@ class ReviewTests: XCTestCase {
     }
 
     func testAdd() {
-        let mockRequest = Review(customerName: "Anna", productName: "Test", starCount: 4, review: "wsedrfty", reviewId: 4)
+        let mockRequest = Review(customerName: "Anna", productId: 1, starCount: 4, review: "wsedrfty", reviewId: 4)
         let review = requestFactory.makeReviewRequestFactory()
         let expecation = expectation(description: "Added")
         review.addNewReview(review: mockRequest) { response in

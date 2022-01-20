@@ -17,6 +17,6 @@ struct AuthRequest: Codable {
 
 struct LogoutRequest: Codable {
 
-    var id: Int
+    var userName: String
 
 }

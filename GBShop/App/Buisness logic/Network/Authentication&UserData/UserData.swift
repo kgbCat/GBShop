@@ -48,13 +48,10 @@ extension UserData {
         let user: UserDataRequest
         var parameters: Parameters? {
             return [
-                "id" : user.id,
                 "userName" : user.userName,
                 "password" : user.password,
                 "email" : user.email,
-                "gender": user.gender,
                 "creditCard" : user.creditCard,
-                "bio" : user.bio
             ]
         }
     }
@@ -67,13 +64,10 @@ extension UserData {
 
         var parameters: Parameters? {
             return [
-                "id" : user.id,
                 "userName" : user.userName,
                 "password" : user.password,
                 "email" : user.email,
-                "gender": user.gender,
                 "creditCard" : user.creditCard,
-                "bio" : user.bio
             ]
         }
 
