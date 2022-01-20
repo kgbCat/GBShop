@@ -18,6 +18,7 @@ class BasketViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        products = Constants.sharedBasket
         basketTableView.dataSource = self
         basketTableView.register(UINib(nibName: Constants.BasketTableViewCell, bundle: nil),
                                  forCellReuseIdentifier: Constants.cartCell)
@@ -29,6 +30,7 @@ class BasketViewController: UIViewController {
 
     @IBAction func paymentButton(_ sender: UIButton) {
         payBasket(totalSum: totalSum, creditCard: Constants.sharedUser.user.creditCard)
+        Constants.sharedBasket = []
     }
 
     @IBAction func addMore(_ sender: UIBarButtonItem) {

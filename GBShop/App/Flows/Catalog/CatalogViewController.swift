@@ -65,9 +65,8 @@ extension CatalogViewController: UITableViewDelegate, CatalogCellDelegate {
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Constants.goToBasketController {
-            let basketController: BasketViewController = segue.destination as! BasketViewController
             if let product = self.product {
-                basketController.products.append(product)
+                Constants.sharedBasket.append(product)
             }
         }
         if segue.identifier == Constants.goToProductVC {

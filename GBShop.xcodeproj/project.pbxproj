@@ -27,6 +27,9 @@
 		0A5594682790F1AE00AF55CC /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5594662790F1AE00AF55CC /* ReviewTableViewCell.swift */; };
 		0A5594692790F1AE00AF55CC /* ReviewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A5594672790F1AE00AF55CC /* ReviewTableViewCell.xib */; };
 		0A55946C2791286300AF55CC /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A55946B2791286200AF55CC /* ProductViewController.swift */; };
+		0A7C236C2799695E007B6CA0 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 0A7C236B2799695E007B6CA0 /* FirebaseAnalytics */; };
+		0A7C236E2799695E007B6CA0 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 0A7C236D2799695E007B6CA0 /* FirebaseCrashlytics */; };
+		0A7C237127996DD4007B6CA0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A7C237027996DD4007B6CA0 /* GoogleService-Info.plist */; };
 		0A8D5AEA27509D29004C04BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8D5AE927509D29004C04BB /* AppDelegate.swift */; };
 		0A8D5AEC27509D29004C04BB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8D5AEB27509D29004C04BB /* SceneDelegate.swift */; };
 		0A8D5AF127509D29004C04BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A8D5AEF27509D29004C04BB /* Main.storyboard */; };
@@ -98,6 +101,7 @@
 		0A5594662790F1AE00AF55CC /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
 		0A5594672790F1AE00AF55CC /* ReviewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReviewTableViewCell.xib; sourceTree = "<group>"; };
 		0A55946B2791286200AF55CC /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
+		0A7C237027996DD4007B6CA0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0A8D5AE627509D29004C04BB /* GBShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GBShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A8D5AE927509D29004C04BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A8D5AEB27509D29004C04BB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -144,6 +148,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A7C236E2799695E007B6CA0 /* FirebaseCrashlytics in Frameworks */,
+				0A7C236C2799695E007B6CA0 /* FirebaseAnalytics in Frameworks */,
 				A32F55BD3661425C3D88B6D9 /* Pods_GBShop.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -186,19 +192,19 @@
 				0AB2EB00276AE96600D61EC2 /* Basket */,
 				0AEE345A27696C5D0067B343 /* Reviews */,
 				0A1EE7D4275C719900B7429C /* Products */,
-				0A1EE7D3275C714900B7429C /* Authentication&UserData */,
+				0A1EE7D3275C714900B7429C /* Authentication+UserData */,
 			);
 			path = Network;
 			sourceTree = "<group>";
 		};
-		0A1EE7CB275C6D5C00B7429C /* Auth&Register */ = {
+		0A1EE7CB275C6D5C00B7429C /* Auth+Register */ = {
 			isa = PBXGroup;
 			children = (
 				0AEE34582766FA490067B343 /* AuthRequest.swift */,
 				0A0E521E2757A06E002C76F5 /* UserDataRequest.swift */,
 				0A0E521827579CF5002C76F5 /* DefaultUserDataResult.swift */,
 			);
-			path = "Auth&Register";
+			path = "Auth+Register";
 			sourceTree = "<group>";
 		};
 		0A1EE7CC275C6D8600B7429C /* CatalogData */ = {
@@ -209,7 +215,7 @@
 			path = CatalogData;
 			sourceTree = "<group>";
 		};
-		0A1EE7D3275C714900B7429C /* Authentication&UserData */ = {
+		0A1EE7D3275C714900B7429C /* Authentication+UserData */ = {
 			isa = PBXGroup;
 			children = (
 				0A0E520E275770C5002C76F5 /* AuthRequestFactory.swift */,
@@ -217,7 +223,7 @@
 				0A0E5210275770CC002C76F5 /* Auth.swift */,
 				0A0E521C27579F16002C76F5 /* UserData.swift */,
 			);
-			path = "Authentication&UserData";
+			path = "Authentication+UserData";
 			sourceTree = "<group>";
 		};
 		0A1EE7D4275C719900B7429C /* Products */ = {
@@ -264,6 +270,7 @@
 		0A8D5AE827509D29004C04BB /* GBShop */ = {
 			isa = PBXGroup;
 			children = (
+				0A7C237027996DD4007B6CA0 /* GoogleService-Info.plist */,
 				0A905847275751DE004D6BFD /* Environments */,
 				0A8D5B19275467AE004C04BB /* App */,
 				0A8D5B1A2754695C004C04BB /* Core */,
@@ -337,7 +344,7 @@
 			children = (
 				0AEE345D27696E3D0067B343 /* Reviews */,
 				0A1EE7CC275C6D8600B7429C /* CatalogData */,
-				0A1EE7CB275C6D5C00B7429C /* Auth&Register */,
+				0A1EE7CB275C6D5C00B7429C /* Auth+Register */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -477,12 +484,17 @@
 				0A8D5AE327509D29004C04BB /* Frameworks */,
 				0A8D5AE427509D29004C04BB /* Resources */,
 				97D89A12624A24ECDEE27921 /* [CP] Embed Pods Frameworks */,
+				0A7C236F27996B06007B6CA0 /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = GBShop;
+			packageProductDependencies = (
+				0A7C236B2799695E007B6CA0 /* FirebaseAnalytics */,
+				0A7C236D2799695E007B6CA0 /* FirebaseCrashlytics */,
+			);
 			productName = GBShop;
 			productReference = 0A8D5AE627509D29004C04BB /* GBShop.app */;
 			productType = "com.apple.product-type.application";
@@ -558,6 +570,9 @@
 				Base,
 			);
 			mainGroup = 0A8D5ADD27509D29004C04BB;
+			packageReferences = (
+				0A7C236A2799695E007B6CA0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 0A8D5AE727509D29004C04BB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -580,6 +595,7 @@
 				0A9233B22791A0C6005DF1B5 /* BasketTableViewCell.xib in Resources */,
 				0A5594692790F1AE00AF55CC /* ReviewTableViewCell.xib in Resources */,
 				0AFDF792277EBCC90063641D /* CatalogTableViewCell.xib in Resources */,
+				0A7C237127996DD4007B6CA0 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -600,6 +616,25 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0A7C236F27996B06007B6CA0 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
+		};
 		1E997234BD246C09D1D3DB02 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -834,7 +869,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -924,9 +959,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = ZHUTRQ83V7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GBShop/Environments/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = GBShop;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -956,6 +993,7 @@
 				DEVELOPMENT_TEAM = ZHUTRQ83V7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GBShop/Environments/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = GBShop;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -1114,6 +1152,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0A7C236A2799695E007B6CA0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0A7C236B2799695E007B6CA0 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0A7C236A2799695E007B6CA0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		0A7C236D2799695E007B6CA0 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0A7C236A2799695E007B6CA0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0A8D5ADE27509D29004C04BB /* Project object */;
 }

@@ -11,6 +11,7 @@ class Constants {
 
     static var sharedUser = Constants(user: UserDataRequest(userName: "", password: "", email: "", creditCard: ""))
     var user: UserDataRequest
+    static var sharedBasket = [Product]()
     
     private init(user: UserDataRequest) {
         self.user = user
