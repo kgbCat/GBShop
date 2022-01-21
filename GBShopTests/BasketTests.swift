@@ -66,7 +66,7 @@ class BasketTests: XCTestCase {
         let sum = 82694
         let basket = requestFactory.makeBasketRequestFactory()
         let expecation = expectation(description: "Payed")
-        basket.payBasket(creditCard: card, productId: id) { response in
+        basket.payBasket(creditCard: card, totalSum: id) { response in
             switch response.result {
             case .success(let model):
                 XCTAssertEqual(model.result, 1)

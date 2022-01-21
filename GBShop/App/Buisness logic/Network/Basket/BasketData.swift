@@ -28,8 +28,8 @@ class BasketData:AbstractRequestFactory {
 
 
 extension BasketData: BasketRequestFactory {
-    func payBasket(creditCard: String, productId: Int, completionHandler: @escaping (AFDataResponse<DefaultUserDataResult>) -> Void) {
-        let requestModel = Pay(baseUrl: baseUrl, productId: productId, creditCard: creditCard)
+    func payBasket(creditCard: String, totalSum: Int, completionHandler: @escaping (AFDataResponse<DefaultUserDataResult>) -> Void) {
+        let requestModel = Pay(baseUrl: baseUrl, totalSum: totalSum, creditCard: creditCard)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
 
@@ -74,11 +74,11 @@ extension BasketData {
         var method: HTTPMethod =  .post
         var path: String = "payBasket"
 
-        let productId: Int
+        let totalSum: Int
         let creditCard: String
         var parameters: Parameters? {
             return [
-                "productId": productId,
+                "totalSum": totalSum,
                 "creditCard": creditCard
             ]
         }

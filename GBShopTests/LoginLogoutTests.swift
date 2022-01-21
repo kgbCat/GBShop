@@ -53,7 +53,6 @@ class LoginLogoutTests: XCTestCase {
 //                XCTAssertEqual(model.userMessage, "Ошибка ввода данных пользователя")
 //                XCTAssertEqual(model.userMessage, "Неверный пароль!")
 
-                XCTAssertEqual(model.errorMessage, nil)
                 authExpectation.fulfill()
 
             case .failure(let error):
