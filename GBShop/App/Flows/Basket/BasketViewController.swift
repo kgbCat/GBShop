@@ -50,15 +50,18 @@ extension BasketViewController: UITableViewDataSource {
             return cell
         }
         return UITableViewCell()
+        
     }
     // this method handles row deletion
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
 
         if editingStyle == .delete {
             // remove the item from the data model
+            AnalyticsManager.shared.trackRemoveFromCart(itemId: products[indexPath.row].id)
             products.remove(at: indexPath.row)
             // delete the table view row
             basketTableView.deleteRows(at: [indexPath], with: .fade)
+            basketTableView.reloadData()
         }
     }
 }
@@ -72,6 +75,7 @@ extension BasketViewController {
                     case .success(let result):
                         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                             self.showAlert(message: result.userMessage)
+                            AnalyticsManager.shared.trackPurchase("payBasket")
                         }
                         self.performSegue(withIdentifier: Constants.addMoreFromCatalog, sender: self)
                     case .failure(let error):

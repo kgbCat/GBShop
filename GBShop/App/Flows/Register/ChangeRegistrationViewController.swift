@@ -67,6 +67,8 @@ extension ChangeRegistrationViewController {
                     }
                 case .failure(let error):
                     print(error.localizedDescription)
+                    CrashlyticsManager.shared
+                        .crash(domain: Domain.changeDataCrash.rawValue, code: CodeError.changeUsersDataError.rawValue)
                 }
             }
         }

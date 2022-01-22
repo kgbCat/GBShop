@@ -45,6 +45,8 @@ extension ProductViewController: UITableViewDataSource {
             cell.configer(review: reviews[indexPath.row])
             return cell
         }
+        CrashlyticsManager.shared.crash(domain: Domain.auth.rawValue
+                                        ,code: CodeError.authError.rawValue)
         return UITableViewCell()
     }
 }

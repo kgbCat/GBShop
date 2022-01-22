@@ -32,6 +32,7 @@ class CatalogViewController: UIViewController {
 
     @IBAction func logout(_ sender: UIBarButtonItem) {
         logout(request: LogoutRequest(userName: Constants.sharedUser.user.userName))
+
     }
 
     @IBAction func unwind( _ seg: UIStoryboardSegue) { }
@@ -96,6 +97,7 @@ extension CatalogViewController {
                     self.catalogTableView.reloadData()
                 case .failure(let error):
                     print(error.localizedDescription)
+                    CrashlyticsManager.shared.crash(domain: Domain.getProducts.rawValue, code: CodeError.getProdutsError.rawValue)
                 }
             }
         }
@@ -107,11 +109,15 @@ extension CatalogViewController {
                 switch response.result {
                 case .success(let logout):
                     self.showAlert(message: logout.userMessage)
+                    AnalyticsManager.shared.trackLogout("logout")
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                         self.performSegue(withIdentifier: Constants.unwind, sender: self)
                     }
                 case .failure(let error):
                     print(error.localizedDescription)
+
+                    CrashlyticsManager.shared.crash(domain: Domain.logoutCrash.rawValue, code: CodeError.logoutError.rawValue
+                    )
                 }
             }
         }
