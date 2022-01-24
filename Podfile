@@ -6,6 +6,10 @@ target 'GBShop' do
   use_frameworks!
 
   # Pods for GBShop
+  # Add the Firebase pod for Google Analytics
+ pod 'Firebase/Analytics'
+# Add the pod for Firebase Crashlytics
+pod 'Firebase/Crashlytics'
  pod 'Alamofire'
 
   target 'GBShopTests' do

@@ -64,6 +64,7 @@ extension RegisterViewController {
                 case .success(let user):
                     if user.result == 1 {
                         self.showAlert(message: user.userMessage)
+                        AnalyticsManager.shared.trackSignUp("register")
                         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                             self.performSegue(withIdentifier: Constants.registerThenUnwindToLogin, sender: self)
                         }
@@ -73,6 +74,7 @@ extension RegisterViewController {
                     }
                 case .failure(let error):
                     print(error.localizedDescription)
+                    CrashlyticsManager.shared.crash(domain: Domain.registerCrash.rawValue, code: CodeError.registerError.rawValue)
                 }
             }
         }

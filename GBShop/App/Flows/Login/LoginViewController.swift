@@ -72,16 +72,20 @@ extension LoginViewController {
                             self.showAlert(message: usersData.userMessage)
                         }
                         self.clearTextFields()
+                        AnalyticsManager.shared.trackSignIn("auth")
                         self.performSegue(withIdentifier: Constants.goToCatalogVC, sender: self)
 
                     } else {
                         self.showAlert(message: usersData.userMessage)
+                        AnalyticsManager.shared.trackSignInFail("auth")
                         self.clearTextFields()
                         self.signInButton.isEnabled.toggle()
                         self.signInButton.backgroundColor = .systemGray
                     }
                 case .failure(let error):
                     print(error.localizedDescription)
+                    CrashlyticsManager.shared.crash(domain: Domain.auth.rawValue
+                                                    ,code: CodeError.authError.rawValue)
                 }
             }
         }
